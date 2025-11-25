@@ -1,0 +1,239 @@
+body {
+  font-family: "Libertinus Mono", monospace;
+  font-weight: 400;
+  background-color: #000000;
+  color: #E0E0E0;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#containerJogo {
+  width: 900px;               /* Defina a largura que preferir */
+  height: 600px;              /* Altura do jogo */
+  margin: 50px auto;          /* Centraliza na tela */
+  position: relative;
+  overflow: hidden;
+  background-color: #000;     /* Um fundo padrão caso o cenário não carregue */
+  border: 2px solid #444;     /* Opcional: borda bonita */
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+#fundoCenario {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0; /* para ficar atrás de tudo */
+  transition: opacity 2s ease-in-out;
+  opacity: 1;
+}
+
+
+/* ===== MENU INICIAL ===== */
+#menuInicial {
+  background-image: url('imagens/menu.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  margin: 80px auto;
+  box-shadow: 0 0 20px #000;
+  color: #E0E0E0;
+  position: relative;
+  z-index: 1;
+}
+
+.titulo-menu {
+  font-family: "Special Elite", system-ui;
+  font-size: 5rem;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+#menuInicial button {
+  background: rgba(37, 33, 33, 0.6);
+  color: #e0d4d4;
+  border: 1px solid #24000e;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  margin: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px #881212;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(78, 0, 18, 0.4);
+}
+
+#menuInicial button:hover {
+  background: #290c17;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(124, 13, 39, 0.6);
+}
+
+/* ===== BOTÃO SALVAR ===== */
+
+#btnSalvar {
+  position: relative;
+  z-index: 5;
+}
+
+#btnSalvar:hover {
+  background: #350014;
+  transform: scale(1.1);
+}
+
+
+
+#containerTexto {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.7); /* Fundo preto translúcido */
+  color: white;
+  font-size: 18px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: "Libertinus", monospace;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  z-index: 5;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8);
+  border-top: 2px solid #660022;
+  border-radius: 10px 10px 0 0;
+}
+
+#fala {
+  margin: 0;
+  line-height: 1.5;
+  max-width: 100%;
+  font-family: 'Libertinus', monospace;
+}
+
+
+/* ===== TÍTULOS ===== */
+
+#capitulo {
+  font-family: 'Libertinus' monospace;
+  font-size: 38px;
+  color: #fff;
+  text-align: center;
+  margin: 20px auto;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1s ease, transform 1s ease, filter 1s ease;
+  pointer-events: none;
+}
+
+
+#capitulo.mostrar {
+  opacity: 1;
+   transform: scale(1);
+  filter: blur(0);
+}
+
+/* ===== BOTÕES GERAIS ===== */
+button,
+.btn {
+  font-family: 'Libertinus', monospace;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #7B1128;
+  color: #E6D9D9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 8px #5A1B2A;
+  transition: background-color 0.3s;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #350014;
+  border-color: #555555;
+}
+
+/* ===== MENU DE OPÇÕES ===== */
+#opcoesMenu {
+  background-color: #121212;
+  color: #E0E0E0;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  margin: 100px auto;
+  box-shadow: 0 0 20px #000000;
+}
+
+.personagem-img {
+  position: absolute;
+  max-height: 90%;
+  bottom: -200px;
+  left: 50%;
+  height: auto;
+  margin: 200px auto;
+  opacity: 0;
+  transform: translateX(-50%);
+  visibility: hidden;
+  transition: opacity 1s ease, transform 1s ease;
+  z-index: 1;
+  
+}
+
+.personagem-img.visivel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.esquerda {
+  left: 0;
+}
+
+.direita {
+  right: 0;
+}
+
+#btnAvancar {
+  position: absolute; 
+  bottom: 200px;    /* Distância do fundo */
+  right: 50px;     /* Distância da lateral */
+  padding: 10px 20px;
+  font-size: 16px;
+  z-index: 1000;   /* Garante que fique na frente */
+}
+
+.barraContainer {
+  position: absolute;          /* Para manter sempre visível na tela */
+  top: 16px;                /* Distância do topo */
+  right: 16px;              /* Distância da borda direita */
+  z-index: 1001;
+  width: 120px;             /* Largura da barra */
+}
+.barra {
+  width: 100%;
+  height: 16px;
+  background-color: #3d1d1d;
+  border: 1px solid #222;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.barraInsanidade .nivel {
+    height: 100%;
+  width: 0%;
+  background-color: rgb(82, 5, 21);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 6px rgb(31, 1, 1);
+}

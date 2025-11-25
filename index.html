@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> 
+<head> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libertinus+Mono&display=swap" rel="stylesheet">
+
+
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dating Sim - Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="containerJogo">
+
+
+<!-- Menu Inicial -->
+<div id="menuInicial">
+  <h1 class="titulo-menu">The Hollow Room</h1>
+  <button onclick="iniciarJogo()">Jogar
+  </button>
+  <button onclick="carregarJogo()">Carregar
+  </button>
+  <button onclick="abrirOpcoes()">Opcoes
+  </button>
+  <button onclick="sair()">Sair
+  </button>   
+</div>
+
+<!-- Tela do Jogo -->
+<div id="jogo" style="display: none;">
+  <img id="imagemPersonagem" alt="Personagem" src="personagens/" class="personagem-img">
+  <img id="personagemEsquerda" class="personagem-img esquerda" alt="Personagem Esquerda">
+  <img id="personagemDireita" class="personagem-img" alt="Personagem Direita">
+  <button id="btnSalvar" onclick="salvarJogo()">Salvar
+  </button>
+
+<div id="fundoCenario"></div> 
+ 
+  <div id="capitulo" class="etapa-titulo" style="display:none;">Capitulo 1: "Paciente Nº ?"</div>
+
+  <div class="barraContainer">
+  <label>Insanidade:</label>
+  <div class="barra barraInsanidade">
+    <div id="insanidadeDestiny" class="nivel">  </div>
+  </div>
+</div>
+
+  <!-- Barra de Afinidade -->
+<div class="afinidade-container" style="display: none;">
+  <div id="afinidadeIsaac">
+    <div id="nivelIsaac" class="afinidade-nivel"></div>
+  </div>
+</div></div>
+
+
+
+  <!-- Opções de escolha + botão avançar -->
+
+  <div id="containerTexto" style="display: none;">
+  <p id="fala" style="display:none;"></p>
+  <div id="opcoes"></div>
+  <button id="btnAvancar" class="btn" onclick="avancar()">OK</button>
+</div>
+
+
+<!-- Opções (menu de configurações) -->
+<div id="opcoesMenu" style="display: none;">
+  <h2>Configurações</h2>
+
+  <label for="idioma">Idioma:</label>
+  <select id="idioma" onchange="mudarIdioma()">
+    <option value="pt">Portugues(BR)</option>
+    <option value="en">English</option>
+  </select>
+  <br><br>
+  <label>
+    Volume:
+    <input type="range" min="0" max="100" value="50"/>
+  </label><br><br>
+  <button onclick="voltarAoMenu()">Voltar</button>
+</div>
+  </div>
+<!-- Scripts -->
+ <script src="idiomas.js"></script>
+ <script src="pt.js"></script>
+<script src="en.js"></script>
+<script src="etapas.pt.js"></script>
+<script crc="etapas.en.js"></script>
+<script src="save.js"></script>
+<script src="final.js"></script>
+<script src="script.js" defer></script>
+
+<audio id="audioMenu" src="music/intro.mp3" loop></audio>
+<audio id="audioJogo" src="music/game-1.mp3" loop></audio>
+
+</body>
+</html>

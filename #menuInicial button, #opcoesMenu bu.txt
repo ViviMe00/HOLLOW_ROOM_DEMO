@@ -1,0 +1,246 @@
+#menuInicial button, #opcoesMenu button {
+  background-color: #222;
+  color: #E0E0E0;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#menuInicial button:hover, #opcoesMenu button:hover {
+  background-color: #444;
+}
+
+____________________________________________
+____________________________________________
+
+
+final
+
+let afinidade = 50;
+let descobriuSegredo = false;
+let foiAgressiva = false;
+
+
+
+function mostrarFinal() {
+  const fala = document.getElementById("fala");
+  const opcoes = document.getElementById("opcoes");
+  const avancar = document.getElementById("btnAvancar");
+
+  opcoes.innerHTML = "";
+  avancar.style.display = "none";
+
+  if (afinidade >= 70 && descobriuSegredo) {
+    fala.innerText = "FINAL VERDADEIRO: Você se lembra... do quarto. E do que fez.";
+  } else if (afinidade >= 30) {
+    fala.innerText = "FINAL NEUTRO: Vocês se afastam, sem mágoas, mas sem respostas.";
+  } else {
+    fala.innerText = "FINAL RUIM: Alex fecha os olhos. O quarto se fecha com ele.";
+  }
+}
+
+
+{
+  fala: "Você olha para trás uma última vez...",
+  efeito: () => finalizarJogo("final_bom")
+}
+
+
+
+function atualizarAfinidade(valor) {
+  if (afinidades[personagemAtual] !== undefined) {
+    afinidades[personagemAtual] += valor;
+    afinidades[personagemAtual] = Math.max(0, Math.min(100, afinidades[personagemAtual]));
+    document.getElementById("nivel" + personagemAtual).style.width = afinidades[personagemAtual] + "%";
+  }
+}
+
+
+let afinidades = {
+  Isaac: 0,
+  Simon: 0,
+  Alex: 0
+};
+
+opcoes.innerHTML = `
+      <button class="btn" onclick="responder(1)">Dizer que estava animada</button>
+      <button class="btn" onclick="responder(2)">Ficar em silêncio</button>
+    `;
+    btnAvancar.style.display = "none";
+
+
+
+
+<!-- Barras de Afinidade (ficarão invisíveis ao jogador) -->
+<div class="afinidades-container" style="display: none;">
+  <div id="afinidadeIsaac">
+    <div id="nivelIsaac" class="afinidade-nivel"></div>
+  </div>
+
+  <div id="afinidadeLuna">
+    <div id="nivelLuna" class="afinidade-nivel"></div>
+  </div>
+
+  <div id="afinidadeGeberson">
+    <div id="nivelGeberson" class="afinidade-nivel"></div>
+  </div>
+</div>
+
+
+if (insanidadeDestiny >= 80) {
+    finalID; // Final insano
+  } else if (insanidadeDestiny >= 40) {
+    carregarEtapa(998); // Final amargo ou instável
+  } else {
+    carregarEtapa(997); // Final bom, sanidade intacta
+  }
+
+
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+function verificarFinal() {
+  let textoFinal = "";
+
+  if (personagemEscolhido === "isaac" && afinidadeIsaac > 80) {
+    textoFinal = "Final feliz com Isaac! Vocês construíram uma conexão forte e superaram os obstáculos juntos...";
+  } else if (personagemEscolhido === "isaac" && afinidadeIsaac < 30) {
+    textoFinal = "Final triste com Isaac. A falta de confiança fez tudo desmoronar...";
+  } else if (personagemEscolhido === "eden" && afinidadeEden > 70) {
+    textoFinal = "Final misterioso com Eden. Vocês encontraram paz no silêncio das sombras...";
+  } else {
+    textoFinal = "Final neutro, uma conclusão aberta para o jogador refletir...";
+  }
+
+  mostrarFinal(textoFinal);
+}
+
+function mostrarFinal(texto) {
+  const container = document.getElementById('finalContainer');
+  const finalTexto = document.getElementById('finalTexto');
+
+  finalTexto.innerHTML = texto.replace(/\n/g, "<br>");
+  finalTexto.style.top = '0px';
+
+  container.style.display = 'block';
+
+  let pos = 0;
+  const velocidade = 0.5;
+  const alturaTexto = finalTexto.offsetHeight;
+  const alturaContainer = container.offsetHeight;
+
+  function animarScroll() {
+    pos -= velocidade;
+    if (Math.abs(pos) < alturaTexto - alturaContainer) {
+      finalTexto.style.top = pos + 'px';
+      requestAnimationFrame(animarScroll);
+    }
+  }
+
+  animarScroll();
+}
+
+
+function verificarFinal() {
+  let textoFinal = "";
+
+  // Exemplo de variáveis que você deve ter
+  // personagemEscolhido: string, ex: "isaac", "eden", null
+  // afinidadeIsaac, afinidadeEden, etc: números 0-100
+  // insanidadeMC: número 0-100
+
+  if (personagemEscolhido === null) {
+    // Jogador não escolheu personagem
+    if (insanidadeMC > 70) {
+      textoFinal = "Você não escolheu ninguém, mas sua insanidade tomou conta. A escuridão venceu...";
+    } else {
+      textoFinal = "Você não escolheu ninguém e sua mente está relativamente estável. O vazio permanece.";
+    }
+  } else {
+    // Jogador escolheu personagem, verificar afinidade e insanidade
+    let afinidade, nomePersonagem;
+
+    switch (personagemEscolhido) {
+      case "isaac":
+        afinidade = afinidadeIsaac;
+        nomePersonagem = "Isaac";
+        break;
+      case "eden":
+        afinidade = afinidadeEden;
+        nomePersonagem = "Eden";
+        break;
+      // Adicione outros personagens aqui...
+      default:
+        afinidade = 0;
+        nomePersonagem = "Desconhecido";
+    }
+
+    if (insanidadeMC > 70) {
+      textoFinal = `Sua insanidade ultrapassou os limites, mesmo com ${nomePersonagem}. Um fim trágico e sombrio espera você.`;
+    } else if (afinidade > 80) {
+      textoFinal = `Você e ${nomePersonagem} construíram uma conexão forte e conseguiram superar as dificuldades. Um final feliz os aguarda.`;
+    } else if (afinidade > 40) {
+      textoFinal = `Sua relação com ${nomePersonagem} foi instável, mas há esperança para o futuro. Um final agridoce.`;
+    } else {
+      textoFinal = `O afastamento entre você e ${nomePersonagem} foi inevitável. O final é solitário e cheio de dúvidas.`;
+    }
+  }
+
+  mostrarFinal(textoFinal);
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+function esconderTodosPersonagens() {
+  document.getElementById("imagemPersonagem").style.display = "none";
+
+  // Esconde todas as barras de afinidade que existirem
+  const barras = document.querySelectorAll(".barra-afinidade");
+  barras.forEach(barra => barra.style.display = "none");
+}
+
+etapas = traducoes[idiomaAtual].etapas;
+
+ const containerTexto = document.getElementById("containerTexto");
+  containerTexto.innerHTML = "";
+  containerTexto.style.display = "none";
+
+
+
+
+function mostrarPersonagem(nome, expressao = "neutra", lado = "esquerda") {
+  esconderTodosPersonagens();
+
+
+  personagemAtual = nome;
+  const nomeFormatado = nome.charAt(0).toUpperCase() + nome.slice(1);
+
+  const barra = document.getElementById("afinidade" + nomeFormatado);
+  if (barra) barra.style.display = "block";
+
+
+{
+  fala: () => {
+    if (afinidade["Jordan"] <15 ){
+      return "Jordan respirou fundo, recuando um passo e cruzando os braços com leveza. [...]";
+    } else {
+      return "Jordan se aproximou em silêncio, e com um gesto cuidadoso [...]";
+    }
+  },
+  personagem: () => {
+    if (afinidade["Jordan"] < 15) {
+      return { nome: "jordan", expressao: "serio", lado: "direita" };
+    } else {
+      return { nome: "jordan", expressao: "gentil", lado: "direita" };
+    }
+  }
+}

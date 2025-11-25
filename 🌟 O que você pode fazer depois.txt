@@ -1,0 +1,26 @@
+🌟 O que você pode fazer depois:
+Adicionar mais falas e cenas com mais personagens.
+
+Criar uma pontuação de afinidade com cada escolha.FEITO
+
+Substituir o texto por imagens dos personagens.
+
+Fazer o jogo ter finais diferentes com base nas escolhas.
+
+Adicionamos personagens diferentes.
+
+Criamos um sistema de múltiplos finais (romântico, amigo, rejeição…).
+
+Usamos imagens e música de fundo.
+um ícone mostrando o nível de afinidade REJEITADO
+
+Slots de save/load reais com localStorage?
+
+Efeito de fade no menu?
+
+Música de fundo + botão de mute?
+
+menu inicial (pronto)
+
+
+0277567@Vv
